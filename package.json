@@ -1,0 +1,84 @@
+{
+  "name": "dsh-obsidian-memory",
+  "version": "0.3.0",
+  "type": "module",
+  "description": "Store DSH agent memory as Markdown notes in an Obsidian vault: sidebar panel, 7 agent tools, BM25 recall with token budgets, decay and archiving, and GitHub Contents API sync.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "obsidian",
+    "memory",
+    "markdown",
+    "notes",
+    "knowledge-base",
+    "bm25"
+  ],
+  "license": "MIT",
+  "author": "aoyamabf",
+  "homepage": "https://github.com/aoyamabf-max/dsh-obsidian-memory#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aoyamabf-max/dsh-obsidian-memory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aoyamabf-max/dsh-obsidian-memory/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./rank": "./rank.js",
+    "./forget": "./forget.js"
+  },
+  "files": [
+    "index.js",
+    "sync.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "rank.js",
+    "forget.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1 <5.0.0",
+    "@deepseek-ai/dsh-client-locale": ">=0.2.0-rc.1 <0.3.0-0",
+    "@deepseek-ai/dsh-client-ui-slots": ">=0.2.0-rc.1 <0.3.0-0",
+    "@deepseek-ai/dsh-host-webserver": ">=0.2.0-rc.1 <0.3.0-0",
+    "@deepseek-ai/dsh-tools": ">=0.2.0-rc.1 <0.3.0-0",
+    "@deepseek-ai/schemastery": "^3.18.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-locale": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-slots": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-host-webserver": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  }
+}
