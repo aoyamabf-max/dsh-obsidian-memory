@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Local dependency symlinks — recreated per machine (node_modules/@deepseek-ai/*)
+
+# Logs and temp
+*.log
+*.tgz
+_tmp/
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Secrets — never commit these
+.env
+.env.*
+token
+deny.txt
+sync-state.json
