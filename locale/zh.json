@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "title": "Obsidian 记忆",
+    "description": "把记忆存成 Obsidian vault 里的 Markdown 笔记，左侧栏可浏览与检索。"
+  },
+  "panel": {
+    "title": "记忆",
+    "empty": "还没有记忆笔记。",
+    "untitled": "无标题",
+    "loading": "读取中…",
+    "error": "读取失败",
+    "search": "搜索记忆…",
+    "noResult": "没有匹配的记忆。",
+    "refresh": "刷新",
+    "sort": "排序",
+    "sortMtime": "最近修改",
+    "sortImportance": "重要度",
+    "levelInsight": "L2 洞察",
+    "superseded": "已被取代",
+    "openVault": "在 Obsidian 打开",
+    "vaultMissing": "找不到 vault 目录",
+    "count": "共 {n} 条",
+    "new": "新建",
+    "createTitle": "新建记忆",
+    "editTitle": "编辑：{file}",
+    "edit": "编辑",
+    "back": "← 返回",
+    "save": "保存",
+    "saving": "保存中…",
+    "cancel": "取消",
+    "all": "全部",
+    "importance": "重要度 {pct}%",
+    "fieldTitle": "标题",
+    "fieldTitleHint": "短一点，会成为文件名",
+    "fieldTags": "标签（逗号分隔）",
+    "fieldTagsHint": "例如：计划, DSH",
+    "fieldBody": "正文（Markdown）",
+    "bodyEmpty": "正文不能为空",
+    "readFailed": "读取失败",
+    "saveFailed": "保存失败"
+  }
+}
