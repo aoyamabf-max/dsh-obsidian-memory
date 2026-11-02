@@ -898,17 +898,29 @@ export function apply(ctx, config = {}) {
   const stateDir = join(homedir(), '.dsh', 'dsh-obsidian-memory')
   const syncStateFile = join(stateDir, 'sync-state.json')
 
-  /** token 优先取 config，其次取单独的 token 文件（不必写进 cordis.patch.yml）。 */
+  /**
+   * token 优先取 config.token，其次取单独的 token 文件（不必写进 cordis.patch.yml）。
+   * 注意 tokenFile 的 schema 默认值是空串，空串必须回落到默认路径 —— 不能当成「没配」。
+   */
   async function resolveToken() {
     const fromConfig = typeof config?.token === 'string' ? config.token.trim() : ''
     if (fromConfig !== '') return fromConfig
-    const tokenFile = typeof config?.tokenFile === 'string' ? config.tokenFile.trim() : join(stateDir, 'token')
-    if (tokenFile === '' || !existsSync(tokenFile)) return ''
+    const tokenFile = resolveStateFile(config?.tokenFile, 'token')
+    if (tokenFile === null || !existsSync(tokenFile)) return ''
     try {
       return (await readFile(tokenFile, 'utf8')).trim()
     } catch {
       return ''
     }
+  }
+
+  /**
+   * 把「可配置的状态文件路径」解析成绝对路径：空串/未定义一律回落到 stateDir 下的默认名。
+   * 这是本插件里所有 stateDir 文件的统一入口，避免每个调用点各写一遍空串判断。
+   */
+  function resolveStateFile(configured, defaultName) {
+    const raw = typeof configured === 'string' ? configured.trim() : ''
+    return raw === '' ? join(stateDir, defaultName) : raw
   }
 
   function syncMinutes() {
@@ -934,7 +946,7 @@ export function apply(ctx, config = {}) {
           repo: config?.repo,
           branch: config?.branch,
           token,
-          denyFile: join(stateDir, 'deny.txt'),
+          denyFile: resolveStateFile(config?.denyFile, 'deny.txt'),
         },
         stateFile: syncStateFile,
         logger: null,
