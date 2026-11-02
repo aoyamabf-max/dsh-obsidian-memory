@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "title": "Obsidian Memory",
+    "description": "Stores memories as Markdown notes in an Obsidian vault, browsable and searchable from the sidebar."
+  },
+  "panel": {
+    "title": "Memory",
+    "empty": "No memory notes yet.",
+    "untitled": "Untitled",
+    "loading": "Loading…",
+    "error": "Failed to load",
+    "search": "Search memories…",
+    "noResult": "No matching memories.",
+    "refresh": "Refresh",
+    "sort": "Sort",
+    "sortMtime": "Recently modified",
+    "sortImportance": "Importance",
+    "levelInsight": "L2 insight",
+    "superseded": "Superseded",
+    "openVault": "Open in Obsidian",
+    "vaultMissing": "Vault directory not found",
+    "count": "{n} notes",
+    "new": "New",
+    "createTitle": "New memory",
+    "editTitle": "Edit: {file}",
+    "edit": "Edit",
+    "back": "← Back",
+    "save": "Save",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "all": "All",
+    "importance": "Importance {pct}%",
+    "fieldTitle": "Title",
+    "fieldTitleHint": "Keep it short — it becomes the filename",
+    "fieldTags": "Tags (comma separated)",
+    "fieldTagsHint": "e.g. plan, DSH",
+    "fieldBody": "Body (Markdown)",
+    "bodyEmpty": "Body must not be empty",
+    "readFailed": "Failed to read",
+    "saveFailed": "Failed to save"
+  }
+}
