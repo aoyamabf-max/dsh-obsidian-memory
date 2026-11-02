@@ -18,11 +18,31 @@ Every memory is a `.md` file with YAML frontmatter that Obsidian indexes nativel
 
 ## Install
 
+Install straight from this repository — no npm account or registry needed:
+
 ```sh
-dsh plugin --profile web add dsh-obsidian-memory@0.3.0
+dsh plugin --profile web add dsh-obsidian-memory@github:aoyamabf-max/dsh-obsidian-memory
+```
+
+Or pin a tag so an upgrade does not surprise you:
+
+```sh
+dsh plugin --profile web add dsh-obsidian-memory@github:aoyamabf-max/dsh-obsidian-memory#v0.3.0
 ```
 
 Replace `web` with your profile name if you use another one. Then restart DSH. The panel appears in the left sidebar; the tools appear to the agent immediately.
+
+### Manual install
+
+If you would rather read the code before installing it:
+
+```sh
+git clone https://github.com/aoyamabf-max/dsh-obsidian-memory.git
+cd dsh-obsidian-memory
+dsh plugin --profile web add .
+```
+
+The package has no runtime dependencies of its own. Everything it imports — `@deepseek-ai/schemastery`, `@deepseek-ai/cordis`, the client UI packages — comes from the DSH host and is declared as a peer dependency.
 
 ### Requirements
 
