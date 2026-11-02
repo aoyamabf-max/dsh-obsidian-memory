@@ -1,0 +1,27 @@
+- insert:
+    - id: dsh-obsidian-memory
+      name: 'dsh-obsidian-memory'
+      config:
+        # Absolute path to your Obsidian vault.
+        # Leave it out and the plugin discovers the vault from Obsidian's own
+        # obsidian.json, preferring the vault that is currently open.
+        # vaultPath: '/home/you/notes'
+        folder: Memories
+
+        # ── GitHub sync (optional) ─────────────────────────────────────
+        # Which private repository to push to. Leave repo empty to disable.
+        # Do NOT put a token here — put it in ~/.dsh/dsh-obsidian-memory/token
+        # (see README: "Setting up GitHub sync").
+        repo: ''
+        branch: main
+        syncEnabled: true
+        # Minutes between change checks (minimum 5).
+        syncMinutes: 30
+
+        # ── Forgetting (off by default) ────────────────────────────────
+        # While this is false, obsidian_forget still previews but never writes.
+        # When on, notes that are unimportant and unreferenced are moved into
+        # Memories/.archive/ — never physically deleted.
+        forgettingEnabled: false
+        # decayFactor: 0.9
+        # pruneThreshold: 0.15
