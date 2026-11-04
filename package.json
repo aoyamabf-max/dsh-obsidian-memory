@@ -1,6 +1,6 @@
 {
   "name": "dsh-obsidian-memory",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "type": "module",
   "description": "Store DSH agent memory as Markdown notes in an Obsidian vault: sidebar panel, 7 agent tools, BM25 recall with token budgets, decay and archiving, and GitHub Contents API sync.",
   "keywords": [
