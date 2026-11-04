@@ -214,7 +214,7 @@ export async function runSync({ vaultRoot, folder, config, stateFile, logger }) 
   const failed = results.filter((r) => r.status === 'failed')
   const blocked = results.filter((r) => r.status === 'blocked')
   const pushedCount = results.length - failed.length - blocked.length
-  return {
+  const out = {
     ok: failed.length === 0,
     repo,
     branch,
@@ -223,11 +223,13 @@ export async function runSync({ vaultRoot, folder, config, stateFile, logger }) 
     failed: failed.length,
     blocked: blocked.length,
     results,
-    error:
-      failed.length > 0
-        ? `${failed.length} file(s) failed to push`
-        : blocked.length > 0
-          ? `${blocked.length} file(s) blocked for containing a secret`
-          : undefined,
   }
+
+  // 只在真有错误时挂 error 键。写成 `error: undefined` 会让宿主把整个返回值判成
+  // 「非无损 JSON」（带显式 undefined 属性的对象过不了快照），于是同步明明成功了，
+  // 工具却报 invalid output。
+  if (failed.length > 0) out.error = `${failed.length} file(s) failed to push`
+  else if (blocked.length > 0) out.error = `${blocked.length} file(s) blocked for containing a secret`
+
+  return out
 }
